@@ -55,7 +55,6 @@ a {
     grid-template-columns: 75% 25%;
     border-bottom: 4px solid black;
     /* overflow: hidden; */
-    /* background: #bdc3c7; */
 }
 
 .main__content {
@@ -98,7 +97,7 @@ a {
     transition: 0.35s ease-in-out
 }
 
-.main__image--container:hover > .sectionHeader {
+.main__image--container:hover > .seriesTitle {
     box-shadow: 1px 1px 1px;
     transition: 0.35s ease-in-out
 }
