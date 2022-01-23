@@ -112,4 +112,5 @@ a {
 .thumbnail__image {
     display: block;
     height: 15vh;
+    cursor: pointer;
 }
