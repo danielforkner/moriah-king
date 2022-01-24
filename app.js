@@ -25,13 +25,16 @@ arrow.addEventListener('click', () => {
     document.querySelector('.hero__image').setAttribute('id', newSeries);    
 
     //change the bottom rows and the titles
-    changeBottom(series, newSeries);
+    changeThumbnails(series, newSeries);
     changeTitle(newSeries);
-    addClick() // click has to be re-added
+    addClick(); // click has to be re-added
+
+    //reset the main image
+    resetMain();
 
 });
 
-function changeBottom(series, newSeries) {
+function changeThumbnails(series, newSeries) {
     for (obj in seriesImg[series]) {
         //remove all thumbnail__image divs
         document.querySelector('.thumbnail__image').remove();
@@ -55,6 +58,10 @@ function changeBottom(series, newSeries) {
 
 function changeTitle(newSeries) {
         document.querySelector('.seriesTitle--text').innerText = `${seriesTitles[newSeries]}`
+}
+
+function resetMain() {
+    document.querySelector('.main__image').src = "";
 }
 
 // Scroll effect
