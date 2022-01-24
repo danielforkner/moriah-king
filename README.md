@@ -1,1 +1,1 @@
-# moriah-king
+a website for photos
