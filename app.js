@@ -1,44 +1,76 @@
-// ALL OF THE IMAGES ACCESSED WITH THIS OBJECT
-const seriesObj = {
+// All of the image names stored here, with their corresponding series
+const seriesImg = {
     '0': ['image0,', 'image1', 'image2', 'image3', 'image4', 'image5'],
     '1': ['image0', 'image1', 'image2', 'image3']
 }
 
+// Property corresponds to series
+const seriesTitles = {
+    '0': 'Exploring China',
+    '1': 'SpongeBob'
+}
+
+addClick()
+
 const arrow = document.getElementById('arrowBtn');
 
 
-// CHANGE THE PHOTOS
+// Main Slider
 arrow.addEventListener('click', () => {
     let series = document.querySelector('.main__image').id;
-    let len = Object.keys(seriesObj).length;
+    let len = Object.keys(seriesImg).length;
     let newSeries = (parseInt(series) + 1) % len;
     console.log('series', series);
     console.log('new series', newSeries);
     document.querySelector('.main__image').src = `./public/series${newSeries}/image0.jpg`;
     document.querySelector('.main__image').setAttribute('id', newSeries);    
 
-    //call function to change the bottom row
+    //change the bottom rows and the titles
     changeBottom(series, newSeries);
-})
+    changeTitle(newSeries);
+    addClick() // click has to be re-added
+
+});
 
 function changeBottom(series, newSeries) {
-    for (obj in seriesObj[series]) {
+    for (obj in seriesImg[series]) {
         //remove all thumbnail__image divs
         document.querySelector('.thumbnail__image').remove();
     }
 
-    const container = document.querySelector('.thumbnail__container');
+    const newContainer = document.querySelector('.thumbnail__container');
     let count = 0;
 
-    for (obj in seriesObj[newSeries]) {
+    for (obj in seriesImg[newSeries]) {
         //create new img
         const newImg = document.createElement('img')
         newImg.src = `./public/series${newSeries}/image${count}.jpg`;
         newImg.className = 'thumbnail__image'
 
         //add all new thumbnail__image divs
-        container.appendChild(newImg);
+        newContainer.appendChild(newImg);
         count += 1;
         console.log(count);
     }
 }
+
+function changeTitle(newSeries) {
+        document.querySelector('.seriesTitle--text').innerText = `${seriesTitles[newSeries]}`
+}
+
+// Add click function to the bottom row images
+function addClick() {
+    let images = document.getElementsByClassName('thumbnail__image');
+    Array.from(images).forEach(function(img) {
+        img.addEventListener('click', function() {
+            let newImg = img.src;
+            let oldImg = document.querySelector('.main__image').src;
+            document.querySelector('.main__image').setAttribute('src', newImg);
+            });
+        });
+};
+
+
+
+
+
