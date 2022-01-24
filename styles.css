@@ -10,21 +10,23 @@
 
 :root {
     --navHeight: 80px;
+    --hoverShadow: 10px 10px 1px;
+    --topGap: 50px;
 }
 
 /* NAVBAR SECTION */
 
 .navbar {
     height: var(--navHeight);
-    display: flex;
+    display: block;
     border-bottom: 4px solid black;
 }
 
 .navbar__container {
-    position: relative;
     display: flex;
     align-items: center;
-    height: 100px;
+    justify-content: center;
+    height: 100%;
     width: 100%;
 }
 
@@ -47,26 +49,35 @@ a {
     transition: 0.2s ease-in;
 }
 
-/* MAIN SECTION */
-.main__container {
+/* HERO SECTION */
+.empty__space {
+    display: block;
+    height: 900px;
+}
+
+.hero__container {
     width: 100%;
-    height: calc(85vh - var(--navHeight));
+    margin: var(--topGap) 0 0 0;
+    padding: 0;
+    height: 40em;
+    position: fixed;
     display: grid;
     grid-template-columns: 75% 25%;
-    border-bottom: 4px solid black;
+    /* border-bottom: 4px solid black; */
     /* overflow: hidden; */
 }
 
-.main__content {
+.hero__content {
     padding: 0 10px;
 }
-.main__image--container {
+.hero__image--container {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    transition: 1s ease-in-out;
 }
 
-.main__image {
+.hero__image {
     display: block;
     object-fit: cover;
     width: 100%;
@@ -74,12 +85,28 @@ a {
     transition: 0.35s ease-in-out
 }
 
-.main__image:hover {
+.hero__image:hover {
     transform: scale(1.25);
     transition: 0.35s ease-in-out;
 }
 
-/* Main Assets */
+/* Make the hero image disappear slowly as you scroll up */
+.halfTransparent {
+    opacity: 0.3;
+    transition: 1s ease-in-out;
+}
+
+.fullTransparent {
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+
+.noTransparent {
+    opacity: 1;
+    transition: 1s ease-in-out;
+}
+
+/* Hero Assets */
 #arrowBtn {
     position: absolute;
     font-size: 4rem;
@@ -88,29 +115,42 @@ a {
     cursor: pointer;
 }
 
+/* This should rise up (aqcuire shadow) once scrolling starts, and sticky to top */
 .seriesTitle {
     margin: 0 5px;
     position: absolute;
-    box-shadow: 10px 10px 1px;
+    display: inline-block;
+    top: 0px;
+    box-shadow: 1px 1px 1px;
     z-index: 900;
     background: #bdc3c7;
     transition: 0.35s ease-in-out
 }
 
-.main__image--container:hover > .seriesTitle {
-    box-shadow: 1px 1px 1px;
+.seriesTitle:hover {
+    box-shadow: var(--hoverShadow);
     transition: 0.35s ease-in-out
 }
 
 /* THUMBNAIL SECTION */
 .thumbnail__container {
     display: flex;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 5px;
     gap: 10px;
-    height: 15vh;
+    height: var(--topGap);
 }
 
 .thumbnail__image {
     display: block;
     height: 15vh;
     cursor: pointer;
+}
+
+/* MAIN SECTION */
+.main {
+    display: block;
+    height: 1300px;
+    border: 4px solid red;
 }

@@ -15,15 +15,14 @@ addClick()
 const arrow = document.getElementById('arrowBtn');
 
 
-// Main Slider
+// Hero Slider
 arrow.addEventListener('click', () => {
-    let series = document.querySelector('.main__image').id;
+    let series = document.querySelector('.hero__image').id.slice(-1);// gets the last char of the series name
     let len = Object.keys(seriesImg).length;
-    let newSeries = (parseInt(series) + 1) % len;
-    console.log('series', series);
-    console.log('new series', newSeries);
-    document.querySelector('.main__image').src = `./public/series${newSeries}/image0.jpg`;
-    document.querySelector('.main__image').setAttribute('id', newSeries);    
+    let newSeries = (parseInt(series) + 1) % len; // conver the last char to int and compare to the length of the obj
+
+    document.querySelector('.hero__image').src = `./public/series${newSeries}/image0.jpg`;
+    document.querySelector('.hero__image').setAttribute('id', newSeries);    
 
     //change the bottom rows and the titles
     changeBottom(series, newSeries);
@@ -57,6 +56,30 @@ function changeBottom(series, newSeries) {
 function changeTitle(newSeries) {
         document.querySelector('.seriesTitle--text').innerText = `${seriesTitles[newSeries]}`
 }
+
+// Scroll effect
+const fadeOut = () => {
+    const heroContainer = document.querySelector('.hero__container');
+    let scrollPos = window.scrollY;
+    console.log(scrollPos);
+
+    if (scrollPos > 306 && scrollPos < 760) {
+        heroContainer.classList.add('halfTransparent');
+        heroContainer.classList.remove('fullTransparent')
+        heroContainer.classList.remove('noTransparent');
+    } else if (scrollPos > 760) {
+        heroContainer.classList.remove('halfTransparent');
+        heroContainer.classList.add('fullTransparent');
+    } else if (scrollPos < 306) {
+        heroContainer.classList.remove('halfTransparent');
+        heroContainer.classList.remove('fullTransparent');
+        heroContainer.classList.add('noTransparent')
+    }
+}
+
+window.addEventListener('scroll', fadeOut);
+
+
 
 // Add click function to the bottom row images
 function addClick() {

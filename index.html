@@ -9,10 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- NAVBAR SECTION -->
+    <!-- NAVBAR SECTION --> 
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="#home" id="navbar__logo">MORIAH <i class="fas fa-crown"></i> KING</a>
+            <a href="#home" id="navbar__logo">ARTIST <i class="fas fa-crown"></i> NAME</a>
             <!-- <ul>
                 <li>Photography</li>
                 <li>About</li>
@@ -20,19 +20,21 @@
         </div>
     </nav>
 
-    <!-- MAIN SECTION -->
-    <div class="main__container">
+    <!-- HERO SECTION -->
+    <div class="hero__container noTransparent">
+        <div class="seriesTitle"><h1 class="seriesTitle--text">Exploring China</h1></div>
         <div id="arrowBtn"><i class="fas fa-arrow-right"></i></i></div>
-        <div class="main__image--container">
-            <div class="seriesTitle"><h1 class="seriesTitle--text">Exploring China</h1></div>
-            <img class="main__image" id="0" src="./public/series0/image0.jpg"> <!-- id is used for js lookup -->
+        <div class="hero__image--container">
+            <img class="hero__image" id="series0" src="./public/series0/image0.jpg"> <!-- id is used for js lookup -->
         </div>
-        <div class="main__content">
+        <div class="hero__content">
             <h1>Header</h1>
             <h2>Location and Date</h2>
             <p>Short description of the series with invitation to see more</p>
         </div>
     </div>
+    <div class="empty__space"></div>
+   
 
     <!-- Thumbnail Section -->
     <div class="thumbnail__container">
@@ -42,6 +44,16 @@
         <img class="thumbnail__image" src="./public/series0/image3.jpg">
         <img class="thumbnail__image" src="./public/series0/image4.jpg">
         <img class="thumbnail__image" src="./public/series0/image5.jpg">
+    </div>
+
+    <!-- MAIN SECTION -->
+    <div class="main">
+        <div class="main__container">
+            <h1>Main Section</h1>
+            <div class="main__image--container">
+                <img class="main__image" src="./public/series0/image1.jpg">
+            </div>
+        </div>
     </div>
 
     <script src="./app.js"></script>
