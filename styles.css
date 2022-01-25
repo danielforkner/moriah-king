@@ -14,6 +14,7 @@
     --topGap: 50px;
     --thumbnailHeight: 150px;
     --posX: 0;
+    --boxShadow: 5px 5px 5px;
 }
 
 /* NAVBAR SECTION */
@@ -149,7 +150,7 @@ a {
 .thumbnail__image {
     height: 100%;
     cursor: pointer;
-    box-shadow: 5px 5px 5px;
+    box-shadow: var(--boxShadow);
 }
 
 /* arrow button for thumbnails */
@@ -182,15 +183,34 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 150px;
 }
 
 .main__content {
-    padding: 0 10px;
+    /* flex: 1 0 auto; */
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    box-shadow: var(--boxShadow);
+}
+
+.cardHeader, .cardFooter {
+    padding: 5px;
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(233, 228, 240, 0.5), rgba(211, 204, 227, 0.5));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(233, 228, 240, 0.5), rgba(211, 204, 227, 0.5)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-bottom: 1px solid rgba(233, 228, 240, 1);
+}
+
+.cardContent {
+    flex: 1 1 auto;
+    padding: 5px;
 }
 
 .main__image--container {
     height: 500px;
-    width: 500px;
+    width: auto;
+    /* flex: 1 0 auto; */
     /* border: 5px solid red; */
 }
 

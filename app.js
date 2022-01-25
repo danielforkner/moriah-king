@@ -10,6 +10,14 @@ const seriesTitles = {
     '1': 'SpongeBob'
 }
 
+// // TO DO: MIGRATE THE ABOVE TO AN ARRAY OF OBJECTS AND FIX CODE FOR THAT
+// // THIS COULD BE PULLED FROM A GOOGLE DOC FOR EXAMPLE. Actually, do that.
+// const nameOfArrayObjs = [
+//     {series: "china", title: "Exploring China", src="./public/images/image0.jpg", imgTitle: "Photo 0", description: "this photo is an image of something cool"},
+//     {}
+// ];
+
+
 addClick()
 
 const arrow = document.getElementById('arrowBtn');
@@ -52,7 +60,7 @@ function changeThumbnails(series, newSeries) {
 
         //add all new thumbnail__image divs
         newContainer.appendChild(newImg);
-        count += 1;
+        count++;
         console.log(count);
     }
 }
