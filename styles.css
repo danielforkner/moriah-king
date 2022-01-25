@@ -13,6 +13,7 @@
     --hoverShadow: 10px 10px 1px;
     --topGap: 50px;
     --thumbnailHeight: 150px;
+    --posX: 0;
 }
 
 /* NAVBAR SECTION */
@@ -62,6 +63,8 @@ a {
     padding: 0;
     height: 40em;
     position: fixed;
+    display: flex;
+    justify-content: center;
     /* display: grid;
     grid-template-columns: 75% 25%; */
     /* border-bottom: 4px solid black; */
@@ -70,7 +73,7 @@ a {
 
 .hero__image--container {
     height: 100%;
-    width: 100%;
+    width: 75%;
     overflow: hidden;
     transition: 1s ease-in-out;
 }
@@ -132,7 +135,7 @@ a {
 }
 
 /* THUMBNAIL SECTION */
-.thumbnail__container {
+.thumbnail__container { 
     /* background-color: rgba(95, 90, 90, 0.5); */
     display: flex;
     position: sticky;
@@ -140,12 +143,31 @@ a {
     top: 5px;
     gap: 10px;
     height: var(--thumbnailHeight);
+    transition: 0.35s ease-in-out;
 }
 
 .thumbnail__image {
     height: 100%;
     cursor: pointer;
     box-shadow: 5px 5px 5px;
+}
+
+/* arrow button for thumbnails */
+.thumbnail__container > .fas {
+    color: black;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: calc(var(--thumbnailHeight) / 2);
+    font-size: 2em;
+}
+
+.thumbnail__container > .fa-arrow-right {
+    right: 10px;
+}
+
+.thumbnail__container > .fa-arrow-left {
+    left: 10px;
 }
 
 /* MAIN SECTION */

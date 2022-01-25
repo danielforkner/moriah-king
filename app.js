@@ -1,6 +1,6 @@
 // All of the image names stored here, with their corresponding series
 const seriesImg = {
-    '0': ['image0,', 'image1', 'image2', 'image3', 'image4', 'image5'],
+    '0': ['image0,', 'image1', 'image2', 'image3', 'image4', 'image5', 'image6', 'image7', 'image8', 'image9', 'image10'],
     '1': ['image0', 'image1', 'image2', 'image3']
 }
 
@@ -16,6 +16,7 @@ const arrow = document.getElementById('arrowBtn');
 
 
 // Hero Slider
+// to do: https://engineertodeveloper.com/create-a-carousel-with-vanilla-javascript/
 arrow.addEventListener('click', () => {
     let series = document.querySelector('.hero__image').id.slice(-1);// gets the last char of the series name
     let len = Object.keys(seriesImg).length;
@@ -76,6 +77,7 @@ const fadeOut = () => {
         heroContainer.classList.remove('noTransparent');
     } else if (scrollPos > 760) {
         heroContainer.classList.remove('halfTransparent');
+        heroContainer.classList.remove('noTransparent');
         heroContainer.classList.add('fullTransparent');
     } else if (scrollPos < 306) {
         heroContainer.classList.remove('halfTransparent');
@@ -87,8 +89,8 @@ const fadeOut = () => {
 window.addEventListener('scroll', fadeOut);
 
 
-
-// Add click function to the bottom row images
+// THUMBNAIL SECTION
+// click function to individual images
 function addClick() {
     let images = document.getElementsByClassName('thumbnail__image');
     Array.from(images).forEach(function(img) {
@@ -100,7 +102,10 @@ function addClick() {
         });
 };
 
+// click and slide function to thumbnail bar
+const leftArrow = document.querySelector('.fa-arrow-left')
+const rightArrow = document.querySelector('.fa-arrow-right')
 
-
-
-
+leftArrow.addEventListener('click', () => {
+   
+});
